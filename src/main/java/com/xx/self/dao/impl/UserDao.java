@@ -1,4 +1,4 @@
-package com.xx.self.dao;
+package com.xx.self.dao.impl;
 
 import com.xx.self.base.BaseDao;
 import com.xx.self.entity.User;

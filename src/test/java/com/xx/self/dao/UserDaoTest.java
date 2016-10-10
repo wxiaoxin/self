@@ -1,5 +1,6 @@
 package com.xx.self.dao;
 
+import com.xx.self.dao.impl.UserDao;
 import com.xx.self.entity.User;
 import com.xx.self.util.UUIDGenerator;
 import org.junit.Test;

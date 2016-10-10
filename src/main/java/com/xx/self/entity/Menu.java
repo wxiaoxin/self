@@ -6,9 +6,7 @@ import java.util.List;
 
 /**
  * Created by Administrator on 2016/10/8.
- *
  * 一级菜单项
- *
  */
 
 @Entity
@@ -25,19 +23,26 @@ public class Menu {
     private String name;
 
     /**
+     * 菜单编码，用于排序
+     */
+    private String code;
+
+    /**
      * 菜单链接的地址
      */
     private String url;
 
     /**
-     * 是否是一级菜单
+     * 菜单类型：
+     * 1-单级菜单
+     * 2-多级菜单
      */
-    private boolean has;
+    private int type;
 
     /**
      * 二级菜单
      */
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     @JoinColumn(name = "menu_id")
     private List<MenuItem> subMenuItemList;
 
@@ -51,7 +56,8 @@ public class Menu {
     private Date createTime;
 
 
-    public Menu() {}
+    public Menu() {
+    }
 
 
     @Override
@@ -59,7 +65,6 @@ public class Menu {
         return "Menu{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
-                ", url='" + url + '\'' +
                 '}';
     }
 
@@ -79,6 +84,14 @@ public class Menu {
         this.name = name;
     }
 
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
     public String getUrl() {
         return url;
     }
@@ -87,12 +100,12 @@ public class Menu {
         this.url = url;
     }
 
-    public boolean isHas() {
-        return has;
+    public int isType() {
+        return type;
     }
 
-    public void setHas(boolean has) {
-        this.has = has;
+    public void setType(int type) {
+        this.type = type;
     }
 
     public List<MenuItem> getSubMenuItemList() {

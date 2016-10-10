@@ -8,39 +8,45 @@ import java.util.Date;
 
 /**
  * Created by Administrator on 2016/10/8.
- *
+ * <p/>
  * 二级菜单
- *
  */
 
 @Entity
 @Table(name = "t_menu_item")
 public class MenuItem {
 
+    /**
+     * 主键
+     */
     @Id
     @Column(length = 32)
     private String id;
 
+    /**
+     * 二级菜单名称
+     */
     private String name;
 
+    /**
+     * 菜单编码，用于排序
+     */
+    private String code;
+
+    /**
+     * 菜单的链接地址
+     */
     private String url;
 
+    /**
+     * 菜单状态：-1-删除 0-正常 1-禁用
+     */
     private int status;
 
     @Column(name = "create_time")
     private Date createTime;
 
-    public MenuItem() {}
-
-    @Override
-    public String toString() {
-        return "MenuItem{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", url='" + url + '\'' +
-                ", status=" + status +
-                ", createTime=" + createTime +
-                '}';
+    public MenuItem() {
     }
 
     public String getId() {
@@ -57,6 +63,14 @@ public class MenuItem {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
 
     public String getUrl() {
