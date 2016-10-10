@@ -5,8 +5,10 @@
     request.setAttribute("rpath", request.getContextPath() + "/resources");
 %>
 
-<link rel="stylesheet" href="${rpath}/resources/plugins/boostrap/bootstrap.css">
-<link rel="stylesheet" href="${rpath}/resources/plugins/boostrap-table/bootstrap-table.css">
+<link rel="stylesheet" href="${path}/resources/plugins/boostrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="${path}/resources/plugins/boostrap-table/bootstrap-table.min.css">
 
-<script src="${rpath}/resources/plugins/jquery/jquery-3.1.1.js"></script>
-<script src="${rpath}/resources/plugins/boostrap-table/bootstrap-table.js"></script>
+<script src="${path}/resources/plugins/jquery/jquery-3.1.1.js"></script>
+<script src="${path}/resources/plugins/boostrap/js/bootstrap.js"></script>
+<script src="${path}/resources/plugins/boostrap-table/bootstrap-table.js"></script>
+<script src="${path}/resources/plugins/boostrap-table/bootstrap-table-zh-CN.js"></script>

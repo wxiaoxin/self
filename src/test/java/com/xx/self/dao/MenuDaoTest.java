@@ -65,17 +65,17 @@ public class MenuDaoTest {
         // 一级菜单
         Menu menu = new Menu();
         menu.setId(UUIDGenerator.randomUUID());
-        menu.setName("首页");
-        menu.setCode("2");
-        menu.setType(1);
-//        menu.setSubMenuItemList(menuItemList);
-        menu.setUrl("http://www.index.com");
+        menu.setName("系统");
+        menu.setCode("1");
+        menu.setType(2);
+        menu.setSubMenuItemList(menuItemList);
+//        menu.setUrl("http://www.index.com");
         menu.setCreateTime(new Date());
 
 
-//        menuItemDao.save(menuItem1);
-//        menuItemDao.save(menuItem2);
-//        menuItemDao.save(menuItem3);
+        menuItemDao.save(menuItem1);
+        menuItemDao.save(menuItem2);
+        menuItemDao.save(menuItem3);
 
         menuDao.save(menu);
 

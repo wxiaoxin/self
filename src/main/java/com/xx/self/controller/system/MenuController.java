@@ -15,10 +15,13 @@ import java.util.List;
 
 /**
  * Created by Administrator on 2016/10/10.
+ *
+ * 系统菜单控制器
+ *
  */
 
 @Controller
-@RequestMapping("/menu")
+@RequestMapping("/system/menu")
 @Scope("prototype")
 public class MenuController extends BaseController {
 

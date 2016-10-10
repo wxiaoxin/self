@@ -1,5 +1,8 @@
 <%@ page contentType="text/html; utf-8" pageEncoding="UTF-8" %>
-<%@ include file="./common/init.jsp" %>
+<%
+    // 应用上下文
+    request.setAttribute("path", request.getContextPath());
+%>
 <!DOCTYPE html>
 <html>
 
@@ -10,13 +13,13 @@
 
     <title>首页</title>
 
-    <link href="${rpath}/css/bootstrap.min.css" rel="stylesheet">
-    <link href="${rpath}/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="${path}/resources/plugins/boostrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${path}/resources/font-awesome/css/font-awesome.css" rel="stylesheet">
 
     <!-- Toastr style -->
-    <link href="${rpath}/css/plugins/toastr/toastr.min.css" rel="stylesheet">
+    <link href="${path}/resources/plugins/toastr/toastr.min.css" rel="stylesheet">
 
-    <link href="${rpath}/css/style.css" rel="stylesheet">
+    <link href="${path}/resources/css/style.css" rel="stylesheet">
 
 </head>
 
@@ -37,7 +40,7 @@
                         <div class="dropdown profile-element" style="text-align: center;">
                             <%--用户图片--%>
                             <span>
-                                <img alt="image" class="img-circle" src="${rpath}/img/profile_small.jpg" />
+                                <img alt="image" class="img-circle" src="${path}/resources/img/profile_small.jpg" />
                             </span>
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                 <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">admin</strong></span>
@@ -53,15 +56,15 @@
                         </div>
                         <%--隐藏侧边栏时显示LOGO--%>
                         <div class="logo-element">
-                            <img alt="image" class="img-circle" src="${rpath}/img/profile_small.jpg" />
+                            <img alt="image" class="img-circle" src="${path}/resources/img/profile_small.jpg" />
                         </div>
                     </li>
 
                     <li class="active">
-                        <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboards</span> <span class="fa arrow"></span></a>
+                        <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">系统</span> <span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level collapse">
-                            <li class="active"><a href="index.html">Dashboard v.1</a></li>
-                            <li><a href="dashboard_2.html">Dashboard v.2</a></li>
+                            <li class="active"><a href="javascript:nav('${path}/system/menu/index.htm')">菜单</a></li>
+                            <li><a href="javascript:nav('http://www.baidu.com')">用户</a></li>
                             <li><a href="dashboard_3.html">Dashboard v.3</a></li>
                             <li><a href="dashboard_4_1.html">Dashboard v.4</a></li>
                         </ul>
@@ -215,13 +218,15 @@
             --%>
 
             <%--  主体  --%>
-            <div class="row">
+            <%--<div class="row">
                 <div class="col-lg-12">
                     <div class="wrapper wrapper-content">
-                            <div class="row"></div>
+                            &lt;%&ndash;<div class="row"></div>&ndash;%&gt;
+
                     </div>
                 </div>
-            </div>
+            </div>--%>
+                <iframe id="contentIFM" src="${path}/system/menu/index.htm" width="100%" height="850px"></iframe>
 
             <%--  底部版本信息  --%>
             <div class="footer">
@@ -235,18 +240,18 @@
     </div><%--页面结束--%>
 
     <!-- Mainly scripts -->
-    <script src="${rpath}/js/jquery-2.1.1.js"></script>
-    <script src="${rpath}/js/bootstrap.min.js"></script>
+    <script src="${path}/resources/plugins/jquery/jquery-3.1.1.js"></script>
+    <script src="${path}/resources/plugins/boostrap/js/bootstrap.js"></script>
     <%--菜单插件--%>
-    <script src="${rpath}/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="${path}/resources/plugins/metisMenu/jquery.metisMenu.js"></script>
 
     <!-- Custom and plugin javascript -->
     <%--进度条插件--%>
-    <script src="${rpath}/js/plugins/pace/pace.min.js"></script>
+    <script src="${path}/resources/plugins/pace/pace.min.js"></script>
     <!-- 消息提示插件 -->
-    <script src="${rpath}/js/plugins/toastr/toastr.min.js"></script>
+    <script src="${path}/resources/plugins/toastr/toastr.min.js"></script>
 
-    <script src="${rpath}/js/inspinia.js"></script>
+    <script src="${path}/resources/js/inspinia.js"></script>
 
     <script>
         $(document).ready(function() {
@@ -264,6 +269,10 @@
             }, 1300);
 
         });
+
+        function nav(url) {
+            $('#contentIFM').attr('src', url);
+        }
     </script>
 </body>
 </html>
